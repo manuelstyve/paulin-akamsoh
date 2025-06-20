@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎶 Musiques – Paulin Akam Soh</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400% 400%;
+      animation: rainbow 15s ease infinite;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 5px black;
+    }
+
+    .tracks-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* 3 premières pistes : environ 30% largeur */
+    .track:nth-child(-n+3) {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      padding: 12px;
+      flex: 1 1 30%;
+      max-width: 320px;
+      box-sizing: border-box;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* suivantes : environ 48% largeur */
+    .track:nth-child(n+4) {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      padding: 12px;
+      flex: 1 1 48%;
+      max-width: 480px;
+      box-sizing: border-box;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .track img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .description {
+      margin-top: 6px;
+      font-size: 16px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 16px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .download-link:hover {
+      background-color: #218838;
+    }
+
+    /* Responsive : pistes pleine largeur sur petits écrans */
+    @media (max-width: 600px) {
+      .track:nth-child(-n+3),
+      .track:nth-child(n+4) {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎵 Musiques de Paulin Akam Soh</h1>
+
+  <div class="tracks-container">
+    <div class="track">
+      <img src="pochette1.jpg" alt="TCHAMA" />
+      <div class="description">
+        <strong>Titre :</strong> TCHAMA<br />
+        Est pitié de moi – Soleil Akam Soh
+      </div>
+      <audio controls>
+        <source src="musique1.mp3" type="audio/mp3" />
+      </audio>
+      <a href="#" class="download-link" onclick="downloadFile('musique1.mp3', 'TCHAMA.mp3'); return false;">Télécharger</a>
+    </div>
+
+    <div class="track">
+      <img src="pochette2.jpg" alt="LESSA MBOLE" />
+      <div class="description">
+        <strong>Titre :</strong> LESSA MBOLE<br />
+        Un mélange de tradition et de citadisme
+      </div>
+      <audio controls>
+        <source src="musique2.mp3" type="audio/mp3" />
+      </audio>
+      <a href="#" class="download-link" onclick="downloadFile('musique2.mp3', 'LESSA_MBOLE.mp3'); return false;">Télécharger</a>
+    </div>
+
+    <div class="track">
+      <img src="pochette3.png" alt="LADEUR" />
+      <div class="description">
+        <strong>Titre :</strong> LADEUR<br />
+        Le mariage, c'est le bonheur d’un homme
+      </div>
+      <audio controls>
+        <source src="musique3.mp3" type="audio/mp3" />
+      </audio>
+      <a href="#" class="download-link" onclick="downloadFile('musique3.mp3', 'LADEUR.mp3'); return false;">Télécharger</a>
+    </div>
+
+    <div class="track">
+      <img src="pochette4.jpg" alt="NGOHO" />
+      <div class="description">
+        <strong>Titre :</strong> NGOHO<br />
+        Un enfant sage, c’est lui qui fait le bonheur de ses parents
+      </div>
+      <audio controls>
+        <source src="musique4.mp3" type="audio/mp3" />
+      </audio>
+      <a href="#" class="download-link" onclick="downloadFile('musique4.mp3', 'NGOHO.mp3'); return false;">Télécharger</a>
+    </div>
+
+    <div class="track">
+      <img src="pochette5.jpg" alt="L’AMOUR" />
+      <div class="description">
+        <strong>Titre :</strong> L’AMOUR<br />
+        Le love est terrible
+      </div>
+      <audio controls>
+        <source src="musique5.mp3" type="audio/mp3" />
+      </audio>
+      <a href="#" class="download-link" onclick="downloadFile('musique5.mp3', 'LAMOUR.mp3'); return false;">Télécharger</a>
+    </div>
+  </div>
+
+  <script>
+    function downloadFile(url, filename) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename || '';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    const audios = Array.from(document.querySelectorAll('audio'));
+
+    audios.forEach((audio, index) => {
+      audio.addEventListener('play', () => {
+        audios.forEach(otherAudio => {
+          if (otherAudio !== audio) {
+            otherAudio.pause();
+            otherAudio.currentTime = 0;
+          }
+        });
+      });
+
+      audio.addEventListener('ended', () => {
+        const nextIndex = index + 1;
+        if (nextIndex < audios.length) {
+          audios[nextIndex].play();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

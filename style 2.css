@@ -1,0 +1,26 @@
+     p {
+       color: green; /* Couleur verte*/ 
+     }
+
+     h1 {
+       color: #0000FF; /* Couleur bleu en hexadécimal */
+     }
+
+     span {
+       color: rgb(0, 255, 0); /* Couleur verte en RGB */
+     }
+
+     .highlight {
+       color: hsl(240, 100%, 50%); /* Couleur bleu en HSL */
+     }
+	 h3 {
+		color: purple; /* Couleur violet*/
+	 }
+	 h2.rainbow {
+  font-size: 30px;
+  font-weight: bold;
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 20px;
+}

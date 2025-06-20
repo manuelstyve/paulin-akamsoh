@@ -1,0 +1,80 @@
+/* style.css */
+
+/* --- COULEURS INSPIRÉES DU CAMEROUN --- */
+:root {
+  --bleu-cameroun: #0072C6;
+  --jaune-cameroun: #ffc107;
+  --vert-cameroun: #28a745;
+  --rouge-cameroun: #dc3545;
+  --clair: #f8f9fa;
+  --fonce: #212529;
+  --fond-sombre: #1a1a1a;
+}
+
+/* --- STYLE GÉNÉRAL --- */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--clair);
+  color: var(--fonce);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* --- BANNIÈRE --- */
+header {
+  background-color: var(--bleu-cameroun);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- BOUTONS --- */
+button {
+  background-color: var(--vert-cameroun);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--jaune-cameroun);
+  color: var(--fonce);
+}
+
+/* --- LIENS --- */
+a {
+  color: var(--bleu-cameroun);
+  text-decoration: green;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- MODE SOMBRE (optionnel) --- */
+body.dark-mode {
+  background-color: var(--fond-sombre);
+  color: white;
+}
+
+body.dark-mode header {
+  background-color: var(--rouge-cameroun);
+}
+
+body.dark-mode button {
+  background-color: var(--bleu-cameroun);
+  color: white;
+}
+h2.rainbow {
+  font-size: 30px;
+  font-weight: bold;
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 20px;
+}
