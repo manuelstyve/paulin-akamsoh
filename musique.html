@@ -2,100 +2,24 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>🎶 Musiques – Paulin Akam Soh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎶 Musiques – Paulin Akam Soh | Tchama, Lessa Mbole, Ladeur</title>
+  <meta name="description" content="Écoutez et téléchargez les musiques de Paulin Akam Soh. Musique traditionnelle camerounaise engagée." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 400% 400%;
-      animation: rainbow 15s ease infinite;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 5px black;
-    }
-
-    .tracks-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    /* 3 premières pistes : environ 30% largeur */
-    .track:nth-child(-n+3) {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      padding: 12px;
-      flex: 1 1 30%;
-      max-width: 320px;
-      box-sizing: border-box;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-
-    /* suivantes : environ 48% largeur */
-    .track:nth-child(n+4) {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      padding: 12px;
-      flex: 1 1 48%;
-      max-width: 480px;
-      box-sizing: border-box;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .track img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .description {
-      margin-top: 6px;
-      font-size: 16px;
-    }
-
-    audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    .download-link {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 8px 16px;
-      background-color: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .download-link:hover {
-      background-color: #218838;
-    }
-
-    /* Responsive : pistes pleine largeur sur petits écrans */
-    @media (max-width: 600px) {
-      .track:nth-child(-n+3),
-      .track:nth-child(n+4) {
-        flex: 1 1 100% !important;
-        max-width: 100% !important;
-      }
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;text-align:center;padding:20px;min-height:100vh}
+    h1{font-size:clamp(1.8em,4vw,2.5em);margin-bottom:30px;text-shadow:2px 2px 5px rgba(0,0,0,0.6)}
+    .tracks-container{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:1200px;margin:0 auto}
+    .track{background:rgba(0,0,0,0.7);border-radius:15px;padding:20px;flex:1 1 300px;max-width:400px;box-shadow:0 8px 20px rgba(0,0,0,0.4);transition:transform .3s ease,box-shadow .3s ease;backdrop-filter:blur(5px)}
+    .track:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(255,215,0,0.2)}
+    .track img{width:100%;border-radius:10px;aspect-ratio:1/1;object-fit:cover;loading:lazy}
+    .description{margin-top:15px;font-size:clamp(14px,2vw,16px);line-height:1.5}
+    .description strong{color:#ffd700}
+    audio{width:100%;margin-top:15px;border-radius:8px}
+    .download-link{display:inline-block;margin-top:12px;padding:10px 20px;background:linear-gradient(135deg,#28a745,#20c997);color:#fff;text-decoration:none;border-radius:25px;font-weight:bold;cursor:pointer;transition:all .3s ease;font-size:clamp(14px,2vw,16px)}
+    .download-link:hover{background:linear-gradient(135deg,#20c997,#28a745);transform:scale(1.05);box-shadow:0 4px 15px rgba(40,167,69,0.4)}
+    @media(max-width:600px){.tracks-container{gap:15px}.track{flex:1 1 100%;max-width:100%;padding:15px}}
   </style>
 </head>
 <body>
@@ -165,32 +89,16 @@
   </div>
 
   <script>
-    function downloadFile(url, filename) {
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename || '';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
-
-    const audios = Array.from(document.querySelectorAll('audio'));
-
-    audios.forEach((audio, index) => {
-      audio.addEventListener('play', () => {
-        audios.forEach(otherAudio => {
-          if (otherAudio !== audio) {
-            otherAudio.pause();
-            otherAudio.currentTime = 0;
-          }
-        });
+    'use strict';
+    function downloadFile(url,filename){const a=document.createElement('a');a.href=url;a.download=filename||'';document.body.appendChild(a);a.click();document.body.removeChild(a);}
+    const audios=Array.from(document.querySelectorAll('audio'));
+    audios.forEach((audio,index)=>{
+      audio.addEventListener('play',()=>{
+        audios.forEach(otherAudio=>{if(otherAudio!==audio){otherAudio.pause();otherAudio.currentTime=0;}});
       });
-
-      audio.addEventListener('ended', () => {
-        const nextIndex = index + 1;
-        if (nextIndex < audios.length) {
-          audios[nextIndex].play();
-        }
+      audio.addEventListener('ended',()=>{
+        const nextIndex=index+1;
+        if(nextIndex<audios.length){audios[nextIndex].play();}
       });
     });
   </script>
